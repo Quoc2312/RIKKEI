@@ -244,7 +244,7 @@ INSERT INTO BoPhan (MaBP, TenBP) VALUES
 (4, 'Marketing'),
 (5, 'Bán hàng');
 
-bophanINSERT INTO NhanVien_BoPhan (MaNV, MaBP) VALUES
+INSERT INTO NhanVien_BoPhan (MaNV, MaBP) VALUES
 (1, 1), 
 (1, 2),
 (2, 2),
@@ -275,7 +275,6 @@ FROM NhanVien NV
 INNER JOIN NhanVien_BoPhan NVP ON NV.MaNV = NVP.MaNV
 INNER JOIN BoPhan BP ON NVP.MaBP = BP.MaBP
 INNER JOIN (
-    -- Truy vấn con để tìm mức lương cao nhất cho từng bộ phận
     SELECT NVP.MaBP, MAX(NV.MucLuong) AS MaxLuong
     FROM NhanVien NV
     INNER JOIN NhanVien_BoPhan NVP ON NV.MaNV = NVP.MaNV
